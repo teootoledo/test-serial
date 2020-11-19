@@ -1,0 +1,15 @@
+{
+  "name": "test-serial",
+  "version": "1.0.0",
+  "description": "Programa para testear puertos serie con JS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Teo Toledo",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^11.0.1",
+    "serialport": "^9.0.2"
+  }
+}
