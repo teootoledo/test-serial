@@ -1,5 +1,4 @@
 //Importando las dependencias
-
 const SerialPort = require('serialport'); //npm i serialport
 const Readline = require("@serialport/parser-readline");
 
@@ -17,4 +16,12 @@ parser.on('data', function(data) {
     console.log(data);
 });
 
-port.write("<Hola Mundo>");
+//Obtener comando del input
+let comando = document.getElementById('comando');
+let send_btn = document.getElementById('send');
+
+send_btn.addEventListener('click', function () {
+    console.log('Send');
+    let nuevoComando = comando.value;
+    port.write(nuevoComando);
+})

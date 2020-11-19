@@ -13,7 +13,14 @@ let mainWindow;
 //Escuchar a que la app esté lista -- ABRIR VENTANA PRINCIPAL
 app.on('ready', function () {
    //Creo una nueva ventana
-    mainWindow = new BrowserWindow({});
+    mainWindow = new BrowserWindow(
+        {
+            webPreferences:
+            {
+                nodeIntegration: true
+            }
+        }
+    );
     //Cargo el archivo html para la ventana principal
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, 'mainWindow.html'),
