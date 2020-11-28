@@ -17,6 +17,8 @@ app.on('ready', function () {
    //Creo una nueva ventana
     mainWindow = new BrowserWindow(
         {
+            width: 800,
+            height: 600,
             webPreferences:
             {
                 nodeIntegration: true
