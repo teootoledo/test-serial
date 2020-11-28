@@ -2,11 +2,13 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
-const { inAppPurchase } = require('electron');
+const SerialPort = require('serialport');
+const Readline = require("@serialport/parser-readline");
+
 //const { Menu } = require('electron'); //Esto lo agrega solo si no lo agrego en las dependencias de la ventana
 
 //Ventana
-const { app, BrowserWindow, Menu } = electron;
+const { app, BrowserWindow, Menu, ipcMain } = electron;
 
 let mainWindow;
 
@@ -46,7 +48,10 @@ function openNewTerminalWindow() {
     terminalWindow = new BrowserWindow({
         width: 370,
         height: 250,
-        title: 'COM Terminal'
+        title: 'COM Terminal',
+        webPreferences:{
+            nodeIntegration: true
+        }
     });
     //Cargo el archivo html para la ventana de la terminal
     terminalWindow.loadURL(url.format({
@@ -60,6 +65,12 @@ function openNewTerminalWindow() {
         terminalWindow = null;
     }) //Algo asi como limpiarlo.
 }
+
+//Catch del comando a traves de IPC
+ipcMain.on('comando:enviar', function(e, comando){
+    mainWindow.webContents.send('comando:enviar', comando);
+    enviarComando(comando);
+})
 
 //Creo la plantilla del menú -- Es un menú que pisa el por defecto
 const mainMenuTemplate = [
@@ -125,4 +136,27 @@ if (process.env.NODE_ENV !== 'production') {
             ]
         }
     )
+}
+
+
+//------------ ENVIAR VIA SERIAL ----------------
+
+//Definiendo el puerto serie
+const port = new SerialPort('COM1', {
+    baudRate: 9600
+})
+
+//Parser del puerto serie
+const parser = new Readline();
+port.pipe(parser);
+
+//Leo data del puerto serie
+parser.on('data', function(data) {
+    console.log(data);
+});
+
+function enviarComando(comando){
+    comando = '<'+comando+'>';
+    port.write(comando);
+    console.log('Se envía comando: '+comando+ ' por COM' + 1);
 }
