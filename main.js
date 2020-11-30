@@ -17,12 +17,14 @@ app.on('ready', function () {
    //Creo una nueva ventana
     mainWindow = new BrowserWindow(
         {
-            width: 800,
-            height: 600,
+            width: 1420,
+            height: 940,
             webPreferences:
             {
                 nodeIntegration: true
-            }
+            },
+            transparent: true, 
+            frame: false
         }
     );
     //Cargo el archivo html para la ventana principal
