@@ -4,17 +4,77 @@
     <link rel="stylesheet" href="styles\css\styles.css" />
     <title>Serialport test - ADOX</title>
   </head>
-  <body>
-    <div id="container">
-      <h1>ADOX S.A. Serial Communication Test App</h1>
-      <p>
-        Apliación que permite la conexión a distintos puertos COM del equipo,
-        para enviar o recibir información. Esta aplicación está implementada con
-        Electron JS, JS, HTML, y Bootstrap.
-      </p>
+  <body class="ventana">
+    <div class="container">
       <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
+        <!-- COLUMNA 1 -->
+        <div class="col-md-4">
+          <div class="row cuadro visualizadorPuerto">
+            <div class="col-md-12">
+              <h3 class="text-right">COM1</h3>
+              <p class="text-right">
+                <small>Puerto actual</small>
+              </p>
+            </div>
+          </div>
+          <div class="row cuadro configuracionPuerto">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label for="inputPassword6">Nombre del puerto:</label>
+                      <select class="custom-select">
+                        <option selected>Puerto</option>
+                        <option value="1">COM1</option>
+                        <option value="2">COM2</option>
+                        <option value="3">COM3</option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- COLUMNA 2 -->
+        <div class="col-md-4">
+          <div class="row cuadro dialogoPuerto">
+            <div class="col-md-12">
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+          </div>
+          <div class="row cuadro enviaComandos">
+            <div class="col-md-12"></div>
+          </div>
+        </div>
+        <!-- COLUMNA 3 -->
+        <div class="col-md-4"></div>
       </div>
     </div>
   </body>
