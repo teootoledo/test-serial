@@ -1,51 +1,256 @@
-* {
-  margin: 0;
-  padding: 0;
-  padding-left: 5px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  /* background: rgb(22, 22, 22); */
+/* @font-face {
+  font-family: "SFPro";
+  src: url(fonts/SF-Pro-Text-Regular.otf);
+  font-style: normal;
+  font-weight: 100;
 }
 
-.cuadro {
+@font-face {
+  font-family: "SFPro";
+  src: url(fonts/SF-Pro-Text-Black.otf);
+  font-style: normal;
+  font-weight: 600;
+} */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: SFPro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen,     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background-color: transparent;
+}
+
+.main-window {
+  background: rgb(203, 203, 203);
+  background: -moz-linear-gradient(
+    315deg,
+    rgba(203, 203, 203, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    315deg,
+    rgba(203, 203, 203, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background: linear-gradient(
+    315deg,
+    rgba(203, 203, 203, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cbcbcb",endColorstr="#ffffff",GradientType=1);
+  border: none;
   border-radius: 40px;
   -webkit-border-radius: 40px;
   -moz-border-radius: 40px;
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
-.ventana {
+.col {
+  padding-top: 101px;
+  padding-left: 94px;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+.colAncha {
+  padding-left: 0px;
+  margin-left: 0px;
+  margin-right: 110px;
+}
+
+.container-fluid {
   border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
-.visualizadorPuerto {
+.card {
+  border-radius: 40px;
+  border: none;
+  color: #ffffff;
+  width: 464px;
+  margin-bottom: 30px;
+  margin-left: 0px;
+  padding-right: 0px;
+  box-shadow: 0px 20px 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding-right: 27px;
+}
+
+form {
+  margin: 0px;
+  margin-top: 10px;
+  margin-left: 11px;
+  padding: 0px;
+  padding-right: 15px;
+}
+
+.rojo {
   background-color: #fc3939;
-  color: #ffffff;
+  height: 206px;
 }
 
-.configuracionPuerto {
+.text-right.card-title {
+  margin-top: 14px;
+  margin-bottom: -10px;
+  padding-bottom: 0px;
+}
+
+.violeta {
+  height: 545px;
   background-color: #a347ff;
-  color: #ffffff;
 }
 
-.dialogoPuerto {
+.violeta-dialogo {
+  width: 682px;
+  height: 165px;
+  background-color: #a347ff;
+}
+
+.gris-dialogo {
+  height: 452px;
+  width: 682px;
   background-color: #979797;
-  color: #ffffff;
+  margin-left: 0px;
 }
 
-.enviaComandos {
-  background-color: #a347ff;
+.form-group.row {
+  margin-bottom: 12px;
+}
+
+.form-control.col-sm-6 {
+  background-color: #e5e5e5;
+  border-radius: 15px;
+  height: 53px;
+  width: 205px;
+}
+
+.comandos {
+  background-color: #e5e5e5;
+  border-radius: 15px;
+  width: 630px;
+  height: 68px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  margin-left: 6px;
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0);
+  height: 68px;
+  width: 530px;
+  padding-left: 15px;
+  border: none;
+}
+
+.enviarComando {
+  background-color: #c4c4c4;
+  height: 52px;
+  width: 90px;
+  border: none;
+  border-radius: 10px;
+  margin-top: -9px;
+  color: #979797;
+  font-weight: 600;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.enviarComando:hover {
+  background-color: #5fe074;
+  transition-duration: 0.5s;
+  transform: scale(1.04);
+  -webkit-transform: scale(1.04);
+  -moz-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  -o-transform: scale(1.04);
+}
+
+.btnConectar {
+  border: none;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  width: 406px;
+  height: 53px;
+  margin-right: 29px;
+  border-radius: 15px;
+  background-color: #b871ff;
   color: #ffffff;
+  font-size: 20pt;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.btnConectar:hover {
+  background-color: #bf80ff;
+  transform: scale(1.04);
+  -webkit-transform: scale(1.04);
+  -moz-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  -o-transform: scale(1.04);
+}
+
+.form-control-lg {
+  border: none;
+  border-radius: 15px;
+  margin: 0px;
+  margin-left: 6px;
+  margin-top: 8px;
+}
+
+.control {
+  height: 20px;
+  width: 20px;
+  border: none;
+  border-radius: 40px;
+  position: absolute;
+  top: 27px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.cerrar {
+  background-color: #fc3939;
+  left: 41px;
+}
+
+.maximizar {
+  background-color: #7cd572;
+  left: 111px;
+}
+
+.minimizar {
+  background-color: #ffd050;
+  left: 76px;
+}
+
+.cerrar:hover {
+  background-color: #ff6363;
+}
+
+.maximizar:hover {
+  background-color: #91e487;
+}
+
+.minimizar:hover {
+  background-color: #ffda76;
+}
+
+.titulo {
+  font-weight: 600;
+  color: #919191;
+  position: absolute;
+  top: 16px;
+  right: 46px;
 }

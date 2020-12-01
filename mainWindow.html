@@ -1,81 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="styles\css\bootstrap.min.css" />
     <link rel="stylesheet" href="styles\css\styles.css" />
-    <title>Serialport test - ADOX</title>
+    <script src="terminal.js"></script>
+    <title>Comunicador Serial</title>
   </head>
-  <body class="ventana">
-    <div class="container">
-      <div class="row">
-        <!-- COLUMNA 1 -->
-        <div class="col-md-4">
-          <div class="row cuadro visualizadorPuerto">
-            <div class="col-md-12">
-              <h3 class="text-right">COM1</h3>
-              <p class="text-right">
-                <small>Puerto actual</small>
-              </p>
-            </div>
-          </div>
-          <div class="row cuadro configuracionPuerto">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <form class="form-inline">
-                    <div class="form-group">
-                      <label for="inputPassword6">Nombre del puerto:</label>
-                      <select class="custom-select">
-                        <option selected>Puerto</option>
-                        <option value="1">COM1</option>
-                        <option value="2">COM2</option>
-                        <option value="3">COM3</option>
-                      </select>
-                    </div>
-                  </form>
+  <body>
+    <div class="main-window">
+      <div>
+        <div class="container-fluid" style="height: 945px">
+          <div class="row" style="height: 945px">
+            <div class="col">
+              <div class="card rojo">
+                <div
+                  class="card-body"
+                  style="background-size: auto; background-position: right"
+                >
+                  <h2 class="text-right card-title" style="font-size: 85px">
+                    COM1
+                  </h2>
+                  <p class="text-right card-text" style="font-size: 15px">
+                    Puerto actual
+                  </p>
                 </div>
-                <div class="col-md-6"></div>
               </div>
-              <div class="row">
-                <div class="col-md-6"></div>
-                <div class="col-md-6"></div>
+              <div class="card violeta">
+                <div class="card-body">
+                  <form>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-6 col-form-label"
+                        style="font-size: 20px"
+                        >Nombre del puerto:</label
+                      >
+                      <!-- Start: Selector --><select
+                        class="form-control col-sm-6"
+                      >
+                        <optgroup>
+                          <option value="12" selected>COM1</option>
+                          <option value="13">COM2</option>
+                          <option value="14">COM3</option>
+                        </optgroup>
+                      </select>
+                      <!-- End: Selector -->
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-6 col-form-label"
+                        style="font-size: 20px"
+                        >Baudios:</label
+                      >
+                      <!-- Start: Selector2 --><select
+                        class="form-control col-sm-6"
+                      >
+                        <optgroup>
+                          <option value="12" selected>4800</option>
+                          <option value="13">9600</option>
+                          <option value="14">14400</option>
+                          <option value="15">19200</option>
+                          <option value="16">38400</option>
+                          <option value="17">56000</option>
+                          <option value="18">57600</option>
+                          <option value="19">115200</option>
+                        </optgroup>
+                      </select>
+                      <!-- End: Selector2 -->
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-6 col-form-label"
+                        style="font-size: 20px"
+                        >Baudios:</label
+                      >
+                      <!-- Start: Selector3 --><select
+                        class="form-control col-sm-6"
+                      >
+                        <optgroup>
+                          <option value="12" selected>7</option>
+                          <option value="13">8</option>
+                        </optgroup>
+                      </select>
+                      <!-- End: Selector3 -->
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-6 col-form-label"
+                        style="font-size: 20px"
+                        >Paridad:</label
+                      >
+                      <!-- Start: Selector4 --><select
+                        class="form-control col-sm-6"
+                      >
+                        <optgroup>
+                          <option value="12" selected>None</option>
+                          <option value="13">Even</option>
+                          <option value="14">Odd</option>
+                          <option value="15">Mark</option>
+                        </optgroup>
+                      </select>
+                      <!-- End: Selector4 -->
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-6 col-form-label"
+                        style="font-size: 20px"
+                        >Handshake:</label
+                      >
+                      <!-- Start: Selector5 --><select
+                        class="form-control col-sm-6"
+                      >
+                        <optgroup>
+                          <option value="12" selected>OFF</option>
+                          <option value="13">RTS/CTS</option>
+                          <option value="14">Xon / Xoff</option>
+                        </optgroup>
+                      </select>
+                      <!-- End: Selector5 -->
+                    </div>
+                    <div class="form-group row">
+                      <label
+                        class="col-sm-6 col-form-label"
+                        style="font-size: 20px"
+                        >Modo:</label
+                      >
+                      <!-- Start: Selector6 --><select
+                        class="form-control col-sm-6"
+                      >
+                        <optgroup>
+                          <option value="12" selected>Free</option>
+                          <option value="13">PortStore test</option>
+                          <option value="14">Data</option>
+                          <option value="15">Setup</option>
+                        </optgroup>
+                      </select>
+                      <!-- End: Selector6 -->
+                    </div>
+                    <button
+                      id="conectar"
+                      class="btn btn-primary btnConectar"
+                      type="submit"
+                      style="font-size: 20px"
+                    >
+                      Conectar
+                    </button>
+                  </form>
+                  <p class="text-right card-text" style="font-size: 15px">
+                    Configuración del puerto
+                  </p>
+                </div>
               </div>
-              <div class="row">
-                <div class="col-md-6"></div>
-                <div class="col-md-6"></div>
+            </div>
+            <div class="col colAncha">
+              <div class="card gris-dialogo">
+                <div
+                  class="card-body"
+                  style="background-size: auto; background-position: right"
+                >
+                  <textarea
+                    class="form-control-lg"
+                    name="Consola"
+                    placeholder="<comandos>"
+                    readonly=""
+                    style="
+                      width: 629px;
+                      height: 361px;
+                      color: rgb(151, 151, 151);
+                    "
+                  ></textarea>
+                  <p class="text-right card-text" style="font-size: 15px">
+                    Recibiendo
+                  </p>
+                </div>
               </div>
-              <div class="row">
-                <div class="col-md-6"></div>
-                <div class="col-md-6"></div>
-              </div>
-              <div class="row">
-                <div class="col-md-6"></div>
-                <div class="col-md-6"></div>
-              </div>
-              <div class="row">
-                <div class="col-md-6"></div>
-                <div class="col-md-6"></div>
-              </div>
-              <div class="row">
-                <div class="col-md-6"></div>
-                <div class="col-md-6"></div>
+              <div class="card violeta-dialogo">
+                <div
+                  class="card-body"
+                  style="background-size: auto; background-position: right"
+                >
+                  <div class="comandos">
+                    <input
+                      type="text"
+                      placeholder="Ingrese aquí un comando..."
+                      style="font-size: 20px; color: rgb(151, 151, 151)"
+                    /><button
+                      class="btn btn-primary enviarComando"
+                      type="submit"
+                    >
+                      Enviar
+                    </button>
+                  </div>
+                  <p class="text-right card-text" style="font-size: 15px">
+                    Enviar comandos
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+          <!-- Start: Close --><button
+            class="btn btn-primary cerrar control"
+            type="button"
+            style="width: 20; padding: 0"
+            id="close-btn"
+          ></button>
+          <!-- End: Close -->
+          <!-- Start: Maximize --><button
+            class="btn btn-primary control maximizar"
+            type="button"
+            style="width: 20px; padding: 0"
+            id="max-btn"
+          ></button>
+          <!-- End: Maximize -->
+          <!-- Start: Minimize --><button
+            class="btn btn-primary control minimizar"
+            type="button"
+            style="width: 20px; padding: 0"
+            id="min-btn"
+          ></button>
+          <!-- End: Minimize -->
+          <h1 class="text-right titulo">Comunicador Serial</h1>
         </div>
-        <!-- COLUMNA 2 -->
-        <div class="col-md-4">
-          <div class="row cuadro dialogoPuerto">
-            <div class="col-md-12">
-              <textarea name="" id="" cols="30" rows="10"></textarea>
-            </div>
-          </div>
-          <div class="row cuadro enviaComandos">
-            <div class="col-md-12"></div>
-          </div>
-        </div>
-        <!-- COLUMNA 3 -->
-        <div class="col-md-4"></div>
       </div>
     </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
