@@ -18,7 +18,7 @@ app.on('ready', function () {
     mainWindow = new BrowserWindow(
         {
             width: 1420,
-            height: 940,
+            height: 945,
             webPreferences:
             {
                 nodeIntegration: true
@@ -164,3 +164,4 @@ function enviarComando(comando){
     port.write(comando);
     console.log('Se envía comando: '+comando+ ' por COM' + 1);
 }
+
