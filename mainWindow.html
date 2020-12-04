@@ -3,7 +3,6 @@
   <head>
     <link rel="stylesheet" href="styles\css\bootstrap.min.css" />
     <link rel="stylesheet" href="styles\css\styles.css" />
-    <script src="terminal.js"></script>
     <title>Comunicador Serial</title>
   </head>
   <body>
@@ -11,7 +10,7 @@
       <div>
         <div class="container-fluid" style="height: 945px">
           <div class="row" style="height: 945px">
-            <div class="col">
+            <div class="col-md-6">
               <div class="card rojo">
                 <div
                   class="card-body"
@@ -31,7 +30,6 @@
                     <div class="form-group row">
                       <label
                         class="col-sm-6 col-form-label"
-                        style="font-size: 20px"
                         >Nombre del puerto:</label
                       >
                       <!-- Start: Selector --><select
@@ -48,7 +46,6 @@
                     <div class="form-group row">
                       <label
                         class="col-sm-6 col-form-label"
-                        style="font-size: 20px"
                         >Baudios:</label
                       >
                       <!-- Start: Selector2 --><select
@@ -70,7 +67,6 @@
                     <div class="form-group row">
                       <label
                         class="col-sm-6 col-form-label"
-                        style="font-size: 20px"
                         >Baudios:</label
                       >
                       <!-- Start: Selector3 --><select
@@ -86,7 +82,6 @@
                     <div class="form-group row">
                       <label
                         class="col-sm-6 col-form-label"
-                        style="font-size: 20px"
                         >Paridad:</label
                       >
                       <!-- Start: Selector4 --><select
@@ -104,7 +99,6 @@
                     <div class="form-group row">
                       <label
                         class="col-sm-6 col-form-label"
-                        style="font-size: 20px"
                         >Handshake:</label
                       >
                       <!-- Start: Selector5 --><select
@@ -121,7 +115,6 @@
                     <div class="form-group row">
                       <label
                         class="col-sm-6 col-form-label"
-                        style="font-size: 20px"
                         >Modo:</label
                       >
                       <!-- Start: Selector6 --><select
@@ -140,7 +133,6 @@
                       id="conectar"
                       class="btn btn-primary btnConectar"
                       type="submit"
-                      style="font-size: 20px"
                     >
                       Conectar
                     </button>
@@ -151,7 +143,7 @@
                 </div>
               </div>
             </div>
-            <div class="col colAncha">
+            <div class="col-md-6">
               <div class="card gris-dialogo">
                 <div
                   class="card-body"
@@ -162,11 +154,6 @@
                     name="Consola"
                     placeholder="<comandos>"
                     readonly=""
-                    style="
-                      width: 629px;
-                      height: 361px;
-                      color: rgb(151, 151, 151);
-                    "
                   ></textarea>
                   <p class="text-right card-text" style="font-size: 15px">
                     Recibiendo
@@ -198,21 +185,21 @@
             </div>
           </div>
           <!-- Start: Close --><button
-            class="btn btn-primary cerrar control"
+            class="btn cerrar control"
             type="button"
             style="width: 20; padding: 0"
             id="close-btn"
           ></button>
           <!-- End: Close -->
           <!-- Start: Maximize --><button
-            class="btn btn-primary control maximizar"
+            class="btn maximizar control"
             type="button"
             style="width: 20px; padding: 0"
             id="max-btn"
           ></button>
           <!-- End: Maximize -->
           <!-- Start: Minimize --><button
-            class="btn btn-primary control minimizar"
+            class="btn minimizar control"
             type="button"
             style="width: 20px; padding: 0"
             id="min-btn"
@@ -222,7 +209,6 @@
         </div>
       </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="front.js"></script>
   </body>
 </html>

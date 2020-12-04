@@ -19,20 +19,19 @@ const {ipcRenderer} = electron;
 //------------ BOTONES DE CERRAR, MAX Y MIN ----------
 
 document.getElementById("min-btn").addEventListener("click", function (e) {
-    var window = remote.getCurrentWindow();
-    window.minimize(); 
-});
+    console.log('Minimizar');
+    let action = 'min';
+    ipcRenderer.send('request-mainprocess-action', action);
+}); 
 
 document.getElementById("max-btn").addEventListener("click", function (e) {
-    var window = remote.getCurrentWindow();
-    if (!window.isMaximized()) {
-        window.maximize();          
-    } else {
-        window.unmaximize();
-    }
-});
+    console.log('Maximizar');
+    let action = 'max';
+    ipcRenderer.send('request-mainprocess-action', action);
+}); 
 
 document.getElementById("close-btn").addEventListener("click", function (e) {
-    var window = remote.getCurrentWindow();
-    window.close();
+    console.log('Cerrar');
+    let action = 'close';
+    ipcRenderer.send('request-mainprocess-action', action);
 }); 

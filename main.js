@@ -4,6 +4,7 @@ const url = require('url');
 const path = require('path');
 const SerialPort = require('serialport');
 const Readline = require("@serialport/parser-readline");
+const { event } = require('jquery');
 
 //const { Menu } = require('electron'); //Esto lo agrega solo si no lo agrego en las dependencias de la ventana
 
@@ -17,8 +18,8 @@ app.on('ready', function () {
    //Creo una nueva ventana
     mainWindow = new BrowserWindow(
         {
-            width: 1420,
-            height: 945,
+            width: 1366,
+            height: 768,
             webPreferences:
             {
                 nodeIntegration: true
@@ -45,36 +46,6 @@ app.on('ready', function () {
     //Insertar menú
     Menu.setApplicationMenu(mainMenu);
 });
-
-//Defino función para abrir una nueva terminal
-function openNewTerminalWindow() {
-    //Creo una nueva ventana
-    terminalWindow = new BrowserWindow({
-        width: 370,
-        height: 250,
-        title: 'COM Terminal',
-        webPreferences:{
-            nodeIntegration: true
-        }
-    });
-    //Cargo el archivo html para la ventana de la terminal
-    terminalWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'terminalWindow.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
-    //Manejo del garbage collector
-    terminalWindow.on('close', function () {
-        terminalWindow = null;
-    }) //Algo asi como limpiarlo.
-}
-
-//Catch del comando a traves de IPC
-ipcMain.on('comando:enviar', function(e, comando){
-    mainWindow.webContents.send('comando:enviar', comando);
-    enviarComando(comando);
-})
 
 //Creo la plantilla del menú -- Es un menú que pisa el por defecto
 const mainMenuTemplate = [
@@ -120,6 +91,7 @@ if (process.platform == 'darwin') {
     mainMenuTemplate.unshift({}); //unshift es un método para arrays que agrega lo que le pasemos al inicio del arreglo.
 }
 
+
 //Agrego las herramientas para desarrollador si el sw no está en producción
 
 if (process.env.NODE_ENV !== 'production') {
@@ -139,10 +111,39 @@ if (process.env.NODE_ENV !== 'production') {
                 }
             ]
         }
-    )
-}
+        )
+    }
+
+    
 
 
+
+
+
+//-----------------------------------------------------------------------
+    
+//Catchs de comandos a traves de IPC
+
+//Enviar comando
+ ipcMain.on('comando:enviar', function(e, comando){
+    mainWindow.webContents.send('comando:enviar', comando);
+    enviarComando(comando);
+ })
+
+//Controles de ventana
+ipcMain.on('request-mainprocess-action', (event, arg) => {
+    if (arg == 'close') {
+        app.quit();
+    } else if (arg == 'max') {
+        mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize();
+    } else if (arg == 'min') {
+        mainWindow.minimize();
+    }
+})
+
+
+
+    
 //------------ ENVIAR VIA SERIAL ----------------
 
 //Definiendo el puerto serie

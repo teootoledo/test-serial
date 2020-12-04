@@ -19,6 +19,10 @@
     Oxygen,     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+html {
+  font-size: 14px;
+}
+
 body {
   background-color: transparent;
 }
@@ -42,24 +46,19 @@ body {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cbcbcb",endColorstr="#ffffff",GradientType=1);
   border: none;
-  border-radius: 40px;
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  -ms-border-radius: 40px;
-  -o-border-radius: 40px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
-.col {
-  padding-top: 101px;
-  padding-left: 94px;
-  padding-right: 0px;
-  margin-right: 0px;
-}
-
-.colAncha {
-  padding-left: 0px;
-  margin-left: 0px;
-  margin-right: 110px;
+.col-md-6 {
+  margin: 0px;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .container-fluid {
@@ -67,18 +66,17 @@ body {
 }
 
 .card {
-  border-radius: 40px;
+  border-radius: 20px;
   border: none;
   color: #ffffff;
-  width: 464px;
-  margin-bottom: 30px;
-  margin-left: 0px;
-  padding-right: 0px;
+  width: 85%;
   box-shadow: 0px 20px 20px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 8%;
 }
 
 .card-body {
-  padding-right: 27px;
+  padding-right: 6%;
+  padding-left: 6%;
 }
 
 form {
@@ -91,48 +89,46 @@ form {
 
 .rojo {
   background-color: #fc3939;
-  height: 206px;
+  height: 20vh;
 }
 
 .text-right.card-title {
-  margin-top: 14px;
-  margin-bottom: -10px;
-  padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 .violeta {
-  height: 545px;
+  height: 50%;
   background-color: #a347ff;
 }
 
 .violeta-dialogo {
-  width: 682px;
-  height: 165px;
+  height: 20vh;
   background-color: #a347ff;
 }
 
 .gris-dialogo {
-  height: 452px;
-  width: 682px;
+  height: 45%;
   background-color: #979797;
   margin-left: 0px;
 }
 
 .form-group.row {
-  margin-bottom: 12px;
+  margin-bottom: 2%;
 }
 
 .form-control.col-sm-6 {
   background-color: #e5e5e5;
   border-radius: 15px;
-  height: 53px;
-  width: 205px;
+  height: 3rem;
+}
+
+.etiquetaConfig {
+  font-size: 5px;
 }
 
 .comandos {
   background-color: #e5e5e5;
   border-radius: 15px;
-  width: 630px;
   height: 68px;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
   margin-left: 6px;
@@ -211,28 +207,34 @@ input {
 }
 
 .control {
-  height: 20px;
-  width: 20px;
+  height: 15px !important;
+  width: 15px !important;
   border: none;
-  border-radius: 40px;
+  border-radius: 15px !important;
   position: absolute;
   top: 27px;
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15) !important;
 }
 
 .cerrar {
   background-color: #fc3939;
   left: 41px;
+  height: 15px;
+  width: 15px;
 }
 
 .maximizar {
   background-color: #7cd572;
   left: 111px;
+  height: 15px;
+  width: 15px;
 }
 
 .minimizar {
   background-color: #ffd050;
   left: 76px;
+  height: 15px;
+  width: 15px;
 }
 
 .cerrar:hover {
