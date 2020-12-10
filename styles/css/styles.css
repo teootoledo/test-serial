@@ -23,6 +23,11 @@ html {
   font-size: 14px;
 }
 
+.drag {
+  height: 10vh;
+  -webkit-app-region: drag;
+}
+
 body {
   background-color: transparent;
 }
@@ -55,10 +60,9 @@ body {
 
 .col-md-6 {
   margin: 0px;
-  padding-top: 15vh;
-  padding-bottom: 15vh;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-top: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
 }
 
 .container-fluid {
@@ -69,9 +73,8 @@ body {
   border-radius: 20px;
   border: none;
   color: #ffffff;
-  width: 85%;
   box-shadow: 0px 20px 20px 20px rgba(0, 0, 0, 0.15);
-  margin-bottom: 8%;
+  margin-bottom: 5%;
 }
 
 .card-body {
@@ -82,34 +85,34 @@ body {
 form {
   margin: 0px;
   margin-top: 10px;
-  margin-left: 11px;
+  margin-left: 0px;
+  margin-bottom: 10px;
   padding: 0px;
   padding-right: 15px;
 }
 
 .rojo {
   background-color: #fc3939;
-  height: 20vh;
 }
 
 .text-right.card-title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
   padding-top: 0px;
 }
 
 .violeta {
-  height: 50%;
   background-color: #a347ff;
 }
 
 .violeta-dialogo {
-  height: 20vh;
   background-color: #a347ff;
 }
 
 .gris-dialogo {
-  height: 45%;
   background-color: #979797;
-  margin-left: 0px;
+  height: 60vh;
 }
 
 .form-group.row {
@@ -118,8 +121,9 @@ form {
 
 .form-control.col-sm-6 {
   background-color: #e5e5e5;
-  border-radius: 15px;
-  height: 3rem;
+  border-radius: 10px;
+  margin-right: 0;
+  height: 2.5rem;
 }
 
 .etiquetaConfig {
@@ -129,28 +133,24 @@ form {
 .comandos {
   background-color: #e5e5e5;
   border-radius: 15px;
-  height: 68px;
+  height: 7vh;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
-  margin-left: 6px;
-  margin-top: 8px;
-  margin-bottom: 6px;
+}
+
+.input-group {
+  margin-bottom: 1vh;
 }
 
 input {
   background-color: rgba(255, 255, 255, 0);
-  height: 68px;
-  width: 530px;
   padding-left: 15px;
   border: none;
 }
 
 .enviarComando {
   background-color: #c4c4c4;
-  height: 52px;
-  width: 90px;
   border: none;
-  border-radius: 10px;
-  margin-top: -9px;
+  border-radius: 15px;
   color: #979797;
   font-weight: 600;
   transition: 0.5s;
@@ -161,7 +161,7 @@ input {
 }
 
 .enviarComando:hover {
-  background-color: #5fe074;
+  background-color: #5dd43f;
   transition-duration: 0.5s;
   transform: scale(1.04);
   -webkit-transform: scale(1.04);
@@ -173,15 +173,14 @@ input {
 .btnConectar {
   border: none;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
-  width: 406px;
-  height: 53px;
-  margin-right: 29px;
+  width: 100%;
+  height: 5vh;
   border-radius: 15px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   background-color: #b871ff;
   color: #ffffff;
-  font-size: 20pt;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: 700;
   transition: 0.5s;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
@@ -201,40 +200,36 @@ input {
 .form-control-lg {
   border: none;
   border-radius: 15px;
-  margin: 0px;
-  margin-left: 6px;
+  width: 100%;
+  height: 90%;
   margin-top: 8px;
+  resize: none;
 }
 
-.control {
+.ventana {
   height: 15px !important;
   width: 15px !important;
   border: none;
-  border-radius: 15px !important;
+  border-radius: 50% !important;
   position: absolute;
   top: 27px;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15) !important;
+  -webkit-app-region: no-drag;
 }
 
 .cerrar {
   background-color: #fc3939;
-  left: 41px;
-  height: 15px;
-  width: 15px;
+  left: 40px;
 }
 
 .maximizar {
   background-color: #7cd572;
-  left: 111px;
-  height: 15px;
-  width: 15px;
+  left: 100px;
 }
 
 .minimizar {
   background-color: #ffd050;
-  left: 76px;
-  height: 15px;
-  width: 15px;
+  left: 70px;
 }
 
 .cerrar:hover {

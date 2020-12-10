@@ -34,4 +34,22 @@ document.getElementById("close-btn").addEventListener("click", function (e) {
     console.log('Cerrar');
     let action = 'close';
     ipcRenderer.send('request-mainprocess-action', action);
-}); 
+});
+
+document.getElementById('conectar').addEventListener('click', send);
+let conexionActual = document.getElementById('conexionActual');
+
+function send (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    let puerto = {
+        name: document.getElementById('nombre').value,
+        baudrate: document.getElementById('baudios').value,
+        dataSize: document.getElementById('data-size').value,
+        parity: document.getElementById('paridad').value,
+        handshake: document.getElementById('handshake').value,
+        mode: document.getElementById('modo').value
+    }
+    ipcRenderer.send('set-port-connection', puerto);
+    conexionActual.innerHTML = puerto.name;
+}

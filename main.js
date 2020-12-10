@@ -114,11 +114,6 @@ if (process.env.NODE_ENV !== 'production') {
         )
     }
 
-    
-
-
-
-
 
 //-----------------------------------------------------------------------
     
@@ -140,11 +135,8 @@ ipcMain.on('request-mainprocess-action', (event, arg) => {
         mainWindow.minimize();
     }
 })
-
-
-
     
-//------------ ENVIAR VIA SERIAL ----------------
+//------------ ENVIAR VIA SERIAL ----------------//
 
 //Definiendo el puerto serie
 const port = new SerialPort('COM1', {
