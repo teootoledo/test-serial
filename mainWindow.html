@@ -32,12 +32,12 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <div class="card rojo">
+              <div class="card neu1">
                 <div
                   class="card-body"
                   style="background-size: auto; background-position: right"
                 >
-                  <h2 id="conexionActual" class="text-right card-title">
+                  <h2 id="conexionActual" class="text-right card-title estado">
                     Desconectado
                   </h2>
                   <p class="text-right card-text">
@@ -45,7 +45,7 @@
                   </p>
                 </div>
               </div>
-              <div class="card violeta">
+              <div class="card neu1">
                 <div class="card-body">
                   <form id="portConfig">
                     <div class="form-group row">
@@ -55,7 +55,7 @@
                       >
                       <!-- Start: Selector --><select
                         id="nombre"
-                        class="form-control col-sm-6"
+                        class="form-control col-sm-6 neu2"
                       >
                         <optgroup>
                           <option value="COM1" selected>COM1</option>
@@ -72,7 +72,7 @@
                       >
                       <!-- Start: Selector2 --><select
                         id="baudios"
-                        class="form-control col-sm-6"
+                        class="form-control col-sm-6 neu2"
                       >
                         <optgroup>
                           <option value="4800" selected>4800</option>
@@ -94,7 +94,7 @@
                       >
                       <!-- Start: Selector3 --><select
                         id="data-size"
-                        class="form-control col-sm-6"
+                        class="form-control col-sm-6 neu2"
                       >
                         <optgroup>
                           <option value="7" selected>7</option>
@@ -110,7 +110,7 @@
                       >
                       <!-- Start: Selector4 --><select
                         id="paridad"
-                        class="form-control col-sm-6"
+                        class="form-control col-sm-6 neu2"
                       >
                         <optgroup>
                           <option value="none" selected>None</option>
@@ -128,7 +128,7 @@
                       >
                       <!-- Start: Selector5 --><select
                         id="handshake"
-                        class="form-control col-sm-6"
+                        class="form-control col-sm-6 neu2"
                       >
                         <optgroup>
                           <option value="off" selected>OFF</option>
@@ -145,7 +145,7 @@
                       >
                       <!-- Start: Selector6 --><select
                         id="modo"
-                        class="form-control col-sm-6"
+                        class="form-control col-sm-6 neu2"
                       >
                         <optgroup>
                           <option value="free" selected>Free</option>
@@ -158,7 +158,7 @@
                     </div>
                     <button
                       id="conectar"
-                      class="btnConectar"
+                      class="btnConectar neu1 neuBtn2"
                       type="submit"
                     >
                       Conectar
@@ -171,13 +171,13 @@
               </div>
             </div>
             <div class="col-md-6">
-              <div class="card gris-dialogo">
+              <div class="card terminalDialogo neu1">
                 <div
                   class="card-body"
                   style="background-size: auto; background-position: right"
                 >
                   <textarea
-                    class="form-control-lg"
+                    class="form-control-lg neu2"
                     name="Consola"
                     placeholder="<comandos>"
                     readonly=""
@@ -187,15 +187,15 @@
                   </p>
                 </div>
               </div>
-              <div class="card violeta-dialogo">
+              <div class="card neu1">
                 <div
                   class="card-body"
                   style="background-size: auto; background-position: right"
                 >
                 <div class="input-group">
-                  <input type="text" class="form-control comandos">
+                  <input type="text" class="form-control comandos neu2">
                   <div class="input-group-append">
-                    <button type="button" class="btn enviarComando">Enviar</button>
+                    <button type="button" class="btn enviarComando neu1 neuBtn2">Enviar</button>
                   </div>
                 </div>
                 <p class="text-right card-text">
