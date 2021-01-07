@@ -119,6 +119,54 @@ if (process.env.NODE_ENV !== 'production') {
     
 //Catchs de comandos a traves de IPC
 
+//Conectar a puerto
+var connectionState = false //Conexión en estado inicial.
+ipcMain.on('set-port-connection', (event, config) => {
+    conectarPuerto(config);
+})
+
+function conectarPuerto(config) {
+    console.log(connectionState);
+    
+    //Definiendo el puerto serie
+    const port = new SerialPort(config.name, {
+        baudRate: parseInt(config.baudrate), //Parseo a int porque deben ser un valor entero
+        dataBits: parseInt(config.dataSize),
+        parity: config.parity
+        
+    });
+    //Parser del puerto serie
+    const parser = new Readline();
+    port.pipe(parser);
+    
+    //Leo data del puerto serie
+    parser.on('data', function(data) {
+        console.log(data);
+    });
+    console.log(config.parity);
+    connectionState = true;
+    console.log(connectionState);
+}
+
+
+//Envío lista de puertos disponibles
+ipcMain.on('available-ports', (event, arg) => {
+    
+    var getPortsList = (callback) => {
+        var portsList = [];
+      
+        SerialPort.list((err, ports) => {
+            ports.forEach((port) => {
+                portsList.push(port.comName);
+            });
+      
+            callback(null, portsList);
+        });
+    };
+    console.log('Puertos enviados');
+    event.returnValue = portsList;
+  })
+
 //Enviar comando
  ipcMain.on('comando:enviar', function(e, comando){
     mainWindow.webContents.send('comando:enviar', comando);
@@ -138,19 +186,7 @@ ipcMain.on('request-mainprocess-action', (event, arg) => {
     
 //------------ ENVIAR VIA SERIAL ----------------//
 
-//Definiendo el puerto serie
-const port = new SerialPort('COM1', {
-    baudRate: 9600
-})
 
-//Parser del puerto serie
-const parser = new Readline();
-port.pipe(parser);
-
-//Leo data del puerto serie
-parser.on('data', function(data) {
-    console.log(data);
-});
 
 function enviarComando(comando){
     comando = '<'+comando+'>';

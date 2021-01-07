@@ -3,19 +3,6 @@ const electron = require('electron');
 const remote = require('electron').remote;
 const {ipcRenderer} = electron;
 
-//Obtener comando del input
-// const form = document.querySelector('form');
-// form.addEventListener('submit', enviarFormulario);
-
-// console.log('HOLA');
-
-// function enviarFormulario(e){
-//     e.preventDefault();
-//     const comando = document.querySelector('#comando').value;
-//     console.log('Enviar comando:' + comando);
-//     ipcRenderer.send('comando:enviar', comando);
-// }
-
 //------------ BOTONES DE CERRAR, MAX Y MIN ----------
 
 document.getElementById("min-btn").addEventListener("click", function (e) {
@@ -36,20 +23,33 @@ document.getElementById("close-btn").addEventListener("click", function (e) {
     ipcRenderer.send('request-mainprocess-action', action);
 });
 
-document.getElementById('conectar').addEventListener('click', send);
+
+//------------ SOLICITO LISTA DE PUERTOS ------------
+document.getElementById('actualizar'.addEventListener('click', obtenerListaDePuertos));
+
+function obtenerListaDePuertos(e) {
+    ipcRenderer.send('available-ports', arg);
+    
+}
+
+ipcRenderer.sendSync('available-ports', arg);
+
+//------------ BOTON CONECTAR ----------
+document.getElementById('conectar').addEventListener('click', conectarPuerto);
 let conexionActual = document.getElementById('conexionActual');
 
-function send (e) {
+function conectarPuerto (e) {
     e.preventDefault();
     e.stopPropagation();
     let puerto = {
         name: document.getElementById('nombre').value,
         baudrate: document.getElementById('baudios').value,
-        dataSize: document.getElementById('data-size').value,
+        dataSize: document.getElementById('data-size').value.toLowerCase(),
         parity: document.getElementById('paridad').value,
         handshake: document.getElementById('handshake').value,
         mode: document.getElementById('modo').value
     }
+    //Cambio de valores
     ipcRenderer.send('set-port-connection', puerto);
     conexionActual.innerHTML = puerto.name;
 }
