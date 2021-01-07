@@ -116,6 +116,18 @@ body {
   color: #e6e6f0;
 }
 
+.neuBtn2:active {
+  background: rgb(255, 123, 0);
+  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.1),
+    inset -5px -6px 15px rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
 .main-window {
   background: #e6e6f0;
   border: none;
@@ -185,18 +197,6 @@ form {
 
 .terminalDialogo {
   height: 50vh;
-}
-
-.terminalDialogo:active {
-  background: #e6e6f0;
-  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.1),
-    inset -5px -6px 15px rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
 }
 
 .form-group.row {
@@ -273,11 +273,6 @@ input {
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
-}
-
-.btnConectar:hover {
-  color: #383838;
-  outline: none;
 }
 
 .btnConectar:active {
